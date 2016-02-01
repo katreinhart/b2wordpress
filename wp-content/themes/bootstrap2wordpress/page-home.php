@@ -298,51 +298,26 @@ get_header(); ?>
         <div class="col-sm-8 col-sm-offset-2">
           <h2>What People are Saying About Brad</h2>
 
-          <!-- testimonial -->
-          <div class="row testimonial">
-            <div class="col-sm-4">
-              <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/brennan.jpg" alt="Brennan" />
-            </div><!--end col -->
-            <div class="col-sm-8">
-              <blockquote>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </blockquote>
-              <cite>&mdash; Brennan, graduate of all Brad's courses</cite>
-            </div><!--end col -->
-          </div><!-- row -->
-          <div class="row testimonial">
-            <div class="col-sm-4">
-              <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/ben.png" alt="Image of a man with a moustache" />
-            </div>
-            <div class="col-sm-8">
-              <blockquote>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </blockquote>
-              <cite>&mdash; Ben, graduate of Build a Website from Scratch with HTML and CSS</cite>
-            </div>
-          </div><!-- row -->
-          <div class="row testimonial">
-            <div class="col-sm-4">
-              <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/aj.png" alt="Illustration of a man with a beard" />
-            </div>
-            <div class="col-sm-8">
-              <blockquote>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
-              </blockquote>
-              <cite>&mdash; AJ, graduate of Code a Responsive Website with Bootstrap 3</cite>
-            </div><!-- col -->
-          </div><!-- row -->
-          <div class="row testimonial">
-            <div class="col-sm-4">
-              <img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/ernest.png" alt="Illustration of a man with a goatee" />
-            </div>
-            <div class="col-sm-8">
-              <blockquote>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-              </blockquote>
-              <cite>&mdash; Ernest, graduate of Code Dynamic Websites with PHP</cite>
-            </div><!-- col -->
-          </div><!-- row -->
+          <?php $loop = new WP_Query ( array( 'post_type' => 'testimonial', 'orderby' => 'post_id', 'order' => 'ASC') ); ?>
+
+          <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+
+            <div class="row testimonial">
+              <div class="col-sm-4">
+
+                <?php if(has_post_thumbnail()){
+                  the_post_thumbnail( array( 200,200 ) );
+                } ?>
+
+              </div><!--end col -->
+              <div class="col-sm-8">
+                <blockquote>
+                  <?php the_content(); ?>
+                </blockquote>
+                <cite>&mdash; <?php the_title(); ?></cite>
+              </div><!--end col -->
+            </div><!-- row -->
+          <?php endwhile; ?>
         </div><!-- col -->
       </div><!-- row -->
     </div><!-- container -->
