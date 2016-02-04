@@ -60,7 +60,6 @@ get_header(); ?>
 			==============================================-->
 			<aside class="col-sm-4">
 				<?php get_sidebar(); ?>
-
 			</aside>
 
 		</div><!-- row -->
