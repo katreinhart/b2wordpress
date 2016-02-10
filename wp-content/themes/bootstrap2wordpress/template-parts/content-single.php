@@ -1,24 +1,8 @@
-<?php
-/**
- * Template part for displaying posts.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package Bootstrap_to_Wordpress
- */
-
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php
-			if ( is_single() ) {
-				the_title( '<h3 class="entry-title">', '</h3>' );
-			} else {
-				the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-			}
+		<?php	the_title( '<h3 class="entry-title">', '</h3>' ); ?>
 
-		if ( 'post' === get_post_type() ) : ?>
+	<?php if ( 'post' === get_post_type() ) : ?>
 			<div class="post-details">
 				<i class="fa fa-user"></i> <?php the_author(); ?>
 				<i class="fa fa-clock-o"></i> <time><?php the_date(); ?></time>
@@ -39,7 +23,14 @@
 			<?php the_post_thumbnail(); ?>
 		</div>
 		<?php } ?>
-		<div class="post-excerpt">
-			<?php the_excerpt(); ?>
+    <div class="post-body">
+			<?php the_content(); ?>
 		</div>
+    <div class="post-comments">
+      <?php 		// If comments are open or we have at least one comment, load up the comment template.
+        if ( comments_open() || get_comments_number() ) :
+          comments_template();
+        endif;
+      ?>
+    </div>
 </article><!-- #post-## -->
