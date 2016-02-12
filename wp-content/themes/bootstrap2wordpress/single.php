@@ -24,9 +24,8 @@ get_header(); ?>
 
 		<!-- sidebar  -->
 		</main><!-- #content -->
-			<?php 	get_sidebar(); ?>
 		<aside class="col-sm-4">
-
+				<?php get_sidebar(); ?>
 		</aside>
 	</div><!-- #primary -->
 </div><!-- #container -->

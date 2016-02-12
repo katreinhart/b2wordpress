@@ -405,6 +405,10 @@ h1{
   font-size: 3em;
 }
 
+h1 small {
+	color: white;
+}
+
 h1,h2{
   margin: 0 0 40px;
 
@@ -904,6 +908,22 @@ footer li.signup-link a:hover{
   margin: 40px 0 0;
   padding: 20px 0 0;
   border-top: solid 1px #eee;
+}
+
+/* specific Wordpress comment styles */
+
+#comments footer{
+	background: none;
+	color: inherit;
+}
+
+#comments a{
+	color: inherit;
+}
+
+#comments .comment-metadata {
+	margin: 10px 0 0;
+
 }
 
 /* === RESOURCES  === */

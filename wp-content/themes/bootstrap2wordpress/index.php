@@ -51,7 +51,10 @@ get_header(); ?>
 
 			<!-- SIDEBAR!
 			==============================================-->
-			<?php get_sidebar(  ); ?>
+			<aside class="col-sm-4">
+			<?php get_sidebar(  ); ?>	
+			</aside>
+
 
 
 		</div><!-- row -->
