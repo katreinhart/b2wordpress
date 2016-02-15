@@ -59,9 +59,9 @@ $thumbnail_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ));
              <p>
               <?php the_content(); ?></p>
               <?php if( !empty($button_text) ) : ?>
-                <a href="<?php echo $resource_url; ?>" class="btn btn-success"><?php echo $button_text; ?><a>
+                <a href="<?php echo $resource_url; ?>" class="btn btn-success"><?php echo $button_text; ?></a>
                 <?php else: ?>
-                  <a href="<?php echo $resource_url; ?>" class="btn btn-success"><?php the_title(); ?><a>
+                  <a href="<?php echo $resource_url; ?>" class="btn btn-success"><?php the_title(); ?></a>
               <?php endif; ?>
            </div> <!-- Resource -->
 
