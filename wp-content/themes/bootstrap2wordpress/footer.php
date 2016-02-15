@@ -37,20 +37,19 @@
 			<a href="/"><img src="<?php bloginfo('stylesheet_directory'); ?>/assets/img/logo.png" alt="Bootstrap to Wordpress" /></a>
 		</p>
 	</div> <!-- end column -->
-	<div class="col-sm-6 ">
-		<nav>
-			<ul class="list-unstyled list-inline">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Blog</a></li>
-				<li><a href="#">Resources</a></li>
-				<li><a href="#">Contact</a></li>
-				<li class="signup-link"><a href="#">Sign up now</a></li>
-			</ul>
-		</nav>
+	<div class="col-sm-5 ">
+		<?php
+			wp_nav_menu( array (
+				'theme-location' 	=> 'footer',
+				'container' 			=> 'nav',
+				'menu_class'			=> 'list-unstyled list-inline'
+
+		)) ;
+		?>
 	</div> <!-- end column -->
-	<div class="col-sm-3" >
+	<div class="col-sm-4" >
 		<p class="pull-right">
-			Copyright (c) 2016 Copyright Holder.
+			<?php bloginfo('name'); ?> &copy; <?php echo date('Y'); ?> <?php the_author_link(); ?>.
 		</p>
 	</div>
 </div><!--container -->
